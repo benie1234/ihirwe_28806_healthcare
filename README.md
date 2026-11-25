@@ -20,7 +20,7 @@ It reduces waste, avoids shortages, and protects patients from expired drugs.
 
  Data Source
 - *Dataset:* Pharma Sales and Drug Expiry Inventory Dataset (Kaggle)
-- *Link:* https://www.kaggle.com/datasets
+- *Link:* [https://www.kaggle.com/datasets](https://www.kaggle.com/datasets/ahmedshahriarsakib/assorted-medicine-dataset-of-bangladesh?select=medicine.csv)
 
  Planned Tables
 1. SUPPLIERS: Holds medicine supplier contact and license details.
