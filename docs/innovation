@@ -1,18 +1,66 @@
-Innovation plan — Oracle APEX dashboard
-Chosen innovation option: User interface / interactive application and analytics dashboard.
-Tool: Oracle APEX, connected to the project's Oracle Database 21c schema.
+Innovation plan — Oracle APEX pharmacy dashboard
+
+Chosen innovation option:
+User interface / interactive application and analytics dashboard.
+
+Tool:
+Oracle APEX, connected to the project's Oracle Database 21c schema.
 
 Planned pages
-Overview dashboard: permit applications, approvals, payment totals and visitor counts.
-Permit applications: submit, review and view status.
-Capacity monitor: daily capacity, approved group size and remaining capacity.
-Entry verification: look up a permit and record entry status.
-Conservation records: record and review conservation observations/incidents.
-Audit monitor: authorized staff view recorded changes and denied/invalid operations.
-Important implementation rule
-The APEX interface will call PL/SQL procedures and query database views.
-Capacity checks, permit eligibility, status transitions and audit recording will be enforced in PL/SQL/database constraints, not only in page-level interface code.
 
-Current status
+Overview dashboard:
+Display current medicine stock, low-stock alerts, medicines expiring soon,
+expired medicines, sales totals, and recent inventory activity.
+
+Medicine catalog:
+Add, view, search, update, and deactivate medicines.
+
+Supplier management:
+Record and review medicine suppliers and their contact information.
+
+Stock batch management:
+Register received batches, including batch number, received quantity,
+manufacture date, expiry date, and supplier.
+
+Sales processing:
+Record customer information and process drug sales using batch quantities.
+
+Expiry monitor:
+Show batches expiring within 30, 60, and 90 days and expired batches.
+Unauthorized or expired stock sales must be blocked.
+
+Low-stock monitor:
+Compare current available quantity with each medicine's reorder level.
+
+Sales analytics:
+Review medicine demand, sales totals, daily transactions, and frequently sold
+medicines.
+
+Audit monitor:
+Allow authorized staff to review inventory changes and denied or invalid
+operations.
+
+Important implementation rule:
+The APEX interface will call PL/SQL procedures and query database views.
+
+Database enforcement:
+Drug expiry checks, available-stock checks, low-stock alerts, batch quantity
+updates, and audit recording must be enforced through PL/SQL procedures,
+functions, triggers, and database constraints—not only through page-level
+interface code.
+
+Planned PL/SQL components:
+- process_drug_sale: validates stock and expiry dates and records a sale.
+- check_stock_level: returns the available quantity for a medicine.
+- prevent_expired_sale: blocks the insertion or processing of expired batches.
+- pharmacy_inventory_pkg: groups inventory-management procedures and functions.
+
+Current status:
 Planned only in Phase 0. No APEX application has been built or connected yet.
-Later phases must include setup instructions, screenshots and a live demonstration against the actual Oracle project database.
+
+Later phases must include:
+- Oracle APEX setup instructions
+- Database connection configuration
+- Screenshots of the implemented pages
+- Live demonstration against the Oracle project database
+- Example expiry, stockout, and sales audit records
